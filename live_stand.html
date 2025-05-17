@@ -1,0 +1,362 @@
+<!-- timer.html -->
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <title>【禮贈品】專業視訊直播支架</title>
+    <style>
+        .navbar {
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #cfbaa4;
+            padding: 0 20px;
+            position: fixed;/* 關鍵：固定位置 */
+            z-index: 1000; /* 確保在其他內容之上 */
+            }
+
+            .navbar-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 68px;
+            position: relative;
+            }
+
+            /* 漢堡按鈕 */
+            .menu-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            cursor: pointer;
+            width: 30px;
+            height: 30px;
+            }
+
+            .menu-toggle span {
+            height: 4px;
+            background-color: #5D3A00;
+            margin: 4px 0;
+            border-radius: 2px;
+            }
+
+            .nav-links {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            }
+
+            .nav-item {
+            position: relative;
+            }
+
+            .nav-links a,
+            .dropdown-btn {
+            text-decoration: none;
+            color: #e7ddd3;
+            background-color: #76553b;
+            padding: 10px 20px;
+            border-radius: 20px;
+            transition: color 0.3s;
+            display: inline-block;
+            white-space: nowrap;
+            }
+
+            .nav-links a:hover,
+            .dropdown-btn:hover {
+            color: #76553b;
+            background-color: #e7ddd3;
+            }
+
+            /* 下拉選單 */
+            .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 60px;
+            left: 0;
+            background-color: rgb(247, 247, 238);
+            min-width: 200px;
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+            border-radius: 10px;
+            z-index: 1;
+            padding: 10px 0;
+            }
+
+            .dropdown-content a {
+            display: block;
+            color: white;
+            background-color: #2b1903;
+            padding: 10px 20px;
+            border-radius: 20px;
+            margin: 5px 10px;
+            }
+
+            .dropdown-content a:hover {
+            color: #D2B48C;
+            }
+
+            .nav-item:hover .dropdown-content {
+            display: block;
+            }
+
+            /* 手機版樣式 */
+            @media (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                gap: 10px;
+                position: absolute;
+                top: 200px;
+                left: 0;
+                width: 100%;
+                background-color: beige;
+                padding: 20px;
+            }
+
+            .nav-item:hover .dropdown-content {
+                position: relative;
+                top: auto;
+                left: auto;
+                box-shadow: none;
+            }
+
+            #menu-toggle:checked + .nav-links {
+                display: flex;
+            }
+            }
+
+            /* 藏起 checkbox */
+            #menu-toggle {
+            display: none;
+            }
+            .content {
+                margin-top: 70px; /* 預留空間避免內容被 navbar 擋住 */
+                padding: 20px;
+                }
+        h1 {
+            text-align: center;     /* 文字置中 */
+            font-family: "微軟正黑體", Arial, sans-serif;  /* 字體 */
+            font-size: 38px;        /* 字體大小 */
+            color: #333333;         /* 文字顏色 */
+            margin-top: 48px;           }
+        h2 {
+            text-align: left;    
+            font-family: "微軟正黑體", Arial, sans-serif;  
+            font-size: 32px;
+            margin-left: 160px; 
+            margin-right: 160px;      
+            color: #323232;         }
+        h3 {
+            text-align: left;    
+            font-family: "微軟正黑體", Arial, sans-serif;  
+            font-size: 18px;     
+            font-weight: bold;
+            color: #333333;
+            margin-left: 160px;
+            margin-right: 160px;
+            margin-bottom: 8px;       }
+        h4 {
+            text-align: right;    
+            font-family: "微軟正黑體", Arial, sans-serif;
+            margin-top: 0;
+            margin-bottom: 0;
+            margin-left: 173px;
+            margin-right: 160px;
+            font-size: 16px;       }
+        p {
+            text-align: left;   
+            font-family: "圓體", Arial, sans-serif;
+            margin-top: 0;
+            margin-left: 173px;
+            margin-right: 160px;
+            font-size: 16px;
+        }
+        img {
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        hr {
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+        .image-container {
+            display: flex;
+            flex-direction: column; /* 預設手機版：垂直排列 */
+            align-items: center;    /* 垂直方向置中 */
+        }
+
+        .image-container img {
+            width: auto;
+            max-width: 100%; /* 防止圖片溢出 */
+            margin: 10px 0;
+        }
+
+        /* 電腦版（例如視窗寬度超過768px）時改成水平排列 */
+        @media (min-width: 768px) {
+            .image-container {
+                flex-direction: row;       /* 水平排列 */
+                justify-content: center;   /* 水平置中 */
+                gap: 20px;                 /* 圖片之間留點間距 */
+            }
+
+            .image-container img {
+                margin: 0; /* 清除上下間距，避免圖片被撐高 */
+            }
+        }
+
+        .btn_web {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #77757b;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-left: 160px;
+            margin-right: 10px;
+            margin-bottom: 8px;
+            margin-top: 8px;
+        }
+        .btn_fb {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #1877F2;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-left: 0px;
+            margin-right: 160px;
+            margin-bottom: 8px;
+            margin-top: 8px;
+        }
+        .btn_book {
+            display: inline-block;
+            padding: 5px 10px;
+            background-color: #3e2404;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-left: 855px;
+            margin-right: 100px;
+            margin-bottom: 8px;
+            margin-top: 8px;
+        }
+        .btn_book:hover{
+            display: inline-block;
+            padding: 5px 10px;
+            background-color:rgb(247, 247, 238);
+            color: #3e2404;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-left: 855px;
+            margin-right: 100px;
+            margin-bottom: 8px;
+            margin-top: 8px;
+        }
+        .btn_id_product_function {
+            display: inline-block;
+            padding: 5px 10px;
+            background-color: #c1d3e2;
+            color: #023364;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-left: 8px;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            margin-top: 8px;
+        }
+        .btn_id_product_function:hover{
+            display: inline-block;
+            padding: 5px 10px;
+            background-color: #c1d3e2;
+            color: #023364;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-left: 8px;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            margin-top: 8px;
+        }
+        @media (min-width: 768px) {
+                .button-container__product_function {
+                display: flex;
+                justify-content: center; /* 水平置中 */
+                gap: 10px;               /* 按鈕之間的間距，可自行調整 */
+                margin-top: 20px;        /* 可加點外距讓區塊不貼太近 */
+                }
+            }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="navbar-container">
+              
+          <!-- 漢堡選單 checkbox -->
+          <label for="menu-toggle" class="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+          </label>
+          <input type="checkbox" id="menu-toggle">
+    
+          <!-- 導覽連結 -->
+          <div class="nav-links">
+            <a href="index.html">公司介紹</a>
+            <a href="gift_list.html">禮品總覽</a>
+            <a href="#contact_us">聯絡我們</a>
+          </div>
+        </div>
+      </div>
+         <h1>專業視訊直播支架</h1>
+
+                              <h4>單價區間:NT xxx </h4>
+                <h4>建議客製量:50個以上</h4>
+                <a href="#檔案名稱" class="btn_book">訂購</a>
+        <hr>
+                  <img src="直播架_會議場景與功能簡介.png" alt="直播架_會議場景與功能簡介" 160px; width="100%", height="auto">
+                  <img src="直播架_使用前後對照圖.png" alt="直播架_使用前後對照圖" 160px; width="100%", height="auto">
+                  <img src="補光.png" alt="三段色溫補光燈" 160px; width="100%", height="auto">
+                  <img src="多角度.jpg" alt="手機支架多角度旋轉旋轉" 160px; width="100%", height="auto">
+                  <img src="穩定畫面不晃動 直播視訊不干擾.png" alt="穩定畫面不晃動 直播視訊不干擾" 160px; width="100%", height="auto">
+                  <img src="直播架_操作方便.png" alt="直播架_操作方便" 160px; width="100%", height="auto">
+        <hr>
+<h1>系列款式</h1>
+                <img src="直播架_多機位補光燈款_平板專用款.png" alt="直播架_多機位補光燈款_平板專用款" 160px; width="100%", height="auto">
+        <hr>
+<h1>產品規格</h1>
+                <div class="image-container">
+                    <img src="多機位補光燈升級款.jpg" alt="多機位補光燈升級款.jpg">
+                    <img src="平板專用款.jpg" alt="平板專用款.jpg">
+                </div>
+          <hr>
+        <h2>專業視訊直播支架 產品介紹</h2>
+            <h3>• 多機位高效率：</h3>
+                <p>可同時安裝多支手機，鏡頭拍攝、查看聊天室、查看筆記，多任務同步開工。</p>
+            <h3>• 畫面穩定不晃動：</h3>
+                <p> 堅固鋁合金支撐桿結合加重底盤設計，內建扳手凹槽，調整更簡單。<br>
+                    畫面穩定不晃動，直播視訊不干擾。
+                    </p>
+            <h3>• 卡扣式升降高度設計：</h3>
+                <p>卡扣快速升降，調整理想鏡頭高度，適應各種桌面高度與場景。</p>
+            <h3>• 三段色溫補光燈：</h3>
+                <p>內建三段色溫補光燈，自然補光，有效還原真實膚色與畫質，讓直播畫面更有專業感。<br>柔和不刺眼，長時間使用也不疲勞。</p>
+            <h3>• 手機支架多角度旋轉，靈活調整完美構圖：</h3>
+                <p>手機支架360°自由旋轉，俯拍、仰拍、側拍等多角度調整，滿足多種拍攝需求。</p>
+                <h3>• 操作簡單方便：</h3>
+                <p>輕鬆快速打造專業視訊直播場景。</p>
+            <a href="#檔案名稱" class="btn_book">訂購</a>
+            <br><br><br><br><br><br>
+
+            <hr>
+            <br>
+                <a href="https://www.oyeatek.com/" class="btn_web">台灣歐耶科技網站</a>
+                <a href="https://www.bing.com/ck/a?!&&p=c1209ddc93b994bfc12af4499bb4ca944b6ff3ac56d9e3fe02f8e26b05bb8f51JmltdHM9MTc0NDMyOTYwMA&ptn=3&ver=2&hsh=4&fclid=10040f1d-3be9-6893-1247-1a7a3af969a1&psq=%e6%ad%90%e8%80%b6%e7%a7%91%e6%8a%80+facebook&u=a1aHR0cHM6Ly93d3cuZmFjZWJvb2suY29tL3AvJUU1JThGJUIwJUU3JTgxJUEzJUU2JUFEJTkwJUU4JTgwJUI2JUU3JUE3JTkxJUU2JThBJTgwJUU4JTgyJUExJUU0JUJCJUJEJUU2JTlDJTg5JUU5JTk5JTkwJUU1JTg1JUFDJUU1JThGJUI4T2gtWWVhaC1UZWNobm9sb2d5LUNvTHRkLTEwMDA1NDIxNDUyMjQ2Ny8&ntb=1" class="btn_fb">FB台灣歐耶科技</a>
+                    <p></p>
+                    <img src="歐耶禮贈品底圖.png" id="contact_us" width="100%" height="auto" alt="網頁底圖: Email:info@oyeatek.com
+                    242新北市新莊區中原路141號14樓">
+              </body>
+            </html>

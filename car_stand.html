@@ -1,0 +1,389 @@
+<!-- timer.html -->
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <title>【禮贈品】車用無線磁吸充電出風口式手機支架</title>
+    <style>
+        
+        html, body {
+            /* 背景顏色就會緊貼瀏覽器邊緣，導航列與圖片也會對齊畫面，不再有空隙。 */
+            margin: 0;
+            padding: 0;
+            background-color: #d8eef9;
+           box-sizing: border-box;/*所有元素的 padding/border 都包含在寬高內*/
+            }
+
+        .navbar {
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #d8eef9;
+            padding: 0 20px;
+            position: fixed;/* 關鍵：固定位置 */
+            z-index: 1000; /* 確保在其他內容之上 */
+            }
+
+            .navbar-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 68px;
+            position: relative;
+            }
+
+            /* 漢堡按鈕 */
+            .menu-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            cursor: pointer;
+            width: 30px;
+            height: 30px;
+            }
+
+            .menu-toggle span {
+            height: 4px;
+            background-color: #5D3A00;
+            margin: 4px 0;
+            border-radius: 2px;
+            }
+
+            .nav-links {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            }
+
+            .nav-item {
+            position: relative;
+            }
+
+            .nav-links a,
+            .dropdown-btn {
+            text-decoration: none;
+            background-color: #023364;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            transition: color 0.3s;
+            display: inline-block;
+            white-space: nowrap;
+            }
+
+            .nav-links a:hover,
+                .dropdown-btn:hover {
+                text-decoration: none;
+                color: #023364;
+                background-color: white;
+                padding: 10px 20px;
+                border-radius: 20px;
+                transition: color 0.3s;
+                display: inline-block;
+                white-space: nowrap;
+                }
+
+            /* 下拉選單 */
+            .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 60px;
+            left: 0;
+            background-color: rgb(247, 247, 238);
+            min-width: 200px;
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+            border-radius: 10px;
+            z-index: 1;
+            padding: 10px 0;
+            }
+
+            .dropdown-content a {
+            display: block;
+            color: white;
+            background-color: #2b1903;
+            padding: 10px 20px;
+            border-radius: 20px;
+            margin: 5px 10px;
+            }
+
+            .dropdown-content a:hover {
+            color: #D2B48C;
+            }
+
+            .nav-item:hover .dropdown-content {
+            display: block;
+            }
+
+            /* 手機版樣式 */
+            @media (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                gap: 10px;
+                position: absolute;
+                top: 200px;
+                left: 0;
+                width: 100%;
+                background-color: beige;
+                padding: 20px;
+            }
+
+            .nav-item:hover .dropdown-content {
+                position: relative;
+                top: auto;
+                left: auto;
+                box-shadow: none;
+            }
+
+            #menu-toggle:checked + .nav-links {
+                display: flex;
+            }
+            }
+
+            /* 藏起 checkbox */
+            #menu-toggle {
+            display: none;
+            }
+            .content {
+                margin-top: 70px; /* 預留空間避免內容被 navbar 擋住 */
+                padding: 20px;
+                }
+        h1 {
+            text-align: center;     /* 文字置中 */
+            font-family: "微軟正黑體", Arial, sans-serif;  /* 字體 */
+            font-size: 38px;        /* 字體大小 */
+            color: #023364;         /* 文字顏色 */
+            margin-top: 48px;           }
+        h2 {
+            text-align: left;    
+            font-family: "微軟正黑體", Arial, sans-serif;  
+            font-size: 32px;
+            margin-left: 160px; 
+            margin-right: 160px;      
+            color: #023364;         }
+        h3 {
+            text-align: left;    
+            font-family: "微軟正黑體", Arial, sans-serif;  
+            font-size: 18px;     
+            font-weight: bold;
+            color: #023364;
+            margin-left: 160px;
+            margin-right: 160px;
+            margin-bottom: 8px;       }
+        h4 {
+            text-align: right;    
+            font-family: "微軟正黑體", Arial, sans-serif;
+            color:#023364;
+            margin-top: 2px;
+            margin-bottom: 2px;
+            font-size: 16px;       }
+        p {
+            text-align: left;   
+            font-family: "圓體", Arial, sans-serif;
+            margin-top: 0;
+            margin-left: 173px;
+            margin-right: 160px;
+            font-size: 16px;
+            color: #023364
+        }
+        img {
+            margin-left: auto;
+            margin-right: auto;
+        }
+        hr {
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+        .image-container {
+            display: flex;
+            flex-direction: column; /* 預設手機版：垂直排列 */
+            align-items: center;    /* 垂直方向置中 */
+        }
+
+        .image-container img {
+            width: auto;
+            max-width: 100%; /* 防止圖片溢出 */
+            margin: 10px 0;
+        }
+
+        /* 電腦版（例如視窗寬度超過768px）時改成水平排列 */
+        @media (min-width: 768px) {
+            .image-container {
+                flex-direction: row;       /* 水平排列 */
+                justify-content: center;   /* 水平置中 */
+                gap: 20px;                 /* 圖片之間留點間距 */
+            }
+
+            .image-container img {
+                margin: 0; /* 清除上下間距，避免圖片被撐高 */
+            }
+        }
+
+        .btn_web {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #77757b;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-left: 160px;
+            margin-right: 10px;
+            margin-bottom: 8px;
+            margin-top: 8px;
+        }
+        .btn_fb {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #1877F2;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-left: 0px;
+            margin-right: 160px;
+            margin-bottom: 8px;
+            margin-top: 8px;
+        }
+        .container_book {
+            display: flex;
+            flex-direction: column;         /* 垂直排列 */
+            align-items: flex-end;          /* 靠右對齊 */
+            padding-right: 100px;                  /* 與右邊邊界距離 */
+            }
+        .btn_book {
+            display: inline-block;
+            padding: 5px 20px;
+            background-color: #023364;
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            text-align: right;
+        }
+        .btn_book:hover {
+            display: inline-block;
+            padding: 5px 20px;
+            background-color: white;
+            color: #023364;
+            text-decoration: none;
+            border-radius: 10px;
+            margin-bottom: 8px;
+            margin-top: 8px;
+            text-align: right;
+        }
+            
+        .image-container_product_function {
+                position: relative;
+                display: inline-block;
+            }
+        .image-container_product_function img {
+                width: 100%;
+                height: auto;
+                display: block;
+            }
+        .image-container_product_function a {
+                position: absolute;
+                padding: 5px 10px;
+                background-color: #63a6db;
+                color: white;
+                text-decoration: none;
+                border-radius:20px; /* 圓角*/
+                border: none; /* 無框 */
+                font-size: 25px;
+            }
+        .image-container_product_function a:hover {
+                position: absolute;
+                padding: 5px 10px;
+                background-color: white;
+                color: #63a6db;
+                text-decoration: none;
+                border-radius:20px;
+                border: none; /* 無框 */
+                font-size: 25px;
+            }
+        .btn_id_product_charge {
+                top: 30%;
+                left: 5%;
+            }
+        .btn_id_product_360 {
+                top: 45%;
+                left: 10%;
+            }
+        .btn_id_product_air_vent {
+                top: 60%;
+                left: 15%;
+            }
+        .btn_id_product_stable {
+                top: 75%;
+                left: 25%;
+            }
+            
+        @media (min-width: 768px) {
+                .button-container__product_function {
+                display: flex;
+                justify-content: center; /* 水平置中 */
+                gap: 10px;               /* 按鈕之間的間距，可自行調整 */
+                margin-top: 20px;        /* 可加點外距讓區塊不貼太近 */
+                }
+            }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="navbar-container">
+              
+          <!-- 漢堡選單 checkbox -->
+          <label for="menu-toggle" class="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+          </label>
+          <input type="checkbox" id="menu-toggle">
+    
+          <!-- 導覽連結 -->
+          <div class="nav-links">
+            <a href="index.html">公司介紹</a>
+            <a href="gift_list.html">禮品總覽</a>
+            <a href="#contact_us">聯絡我們</a>
+          </div>
+        </div>
+      </div>
+
+      <img src="產品主圖橫幅.png" alt="" 160px; width="100%", height="auto">
+                <div class="image-container_product_function">
+                    <img src="按鈕圖片.png" alt="" 160px; width="100%", height="auto">
+                </* a href="#charge" class="btn_id_product_charge"*/></*/a */>
+                    <a href="#360"  class="btn_id_product_360">360度手機視角</a>
+                    <a href="#air_vent"  class="btn_id_product_air_vent">出風口夾簡易安裝</a>
+                    <a href="#stable"  class="btn_id_product_stable">強力穩固支架</a>
+                </div>    
+            <img id="charge" src=" "一秒吸附充電>
+            <img id="360" src="360度旋轉.png" alt="" 160px; width="100%", height="auto">
+            <img id="air_vent" src="出風口夾.png" alt="" 160px; width="100%", height="auto">    
+            <img src="適用各種車款出風口.png" alt="" 160px; width="100%", height="auto">
+            <img id="stable" src="穩固不晃動.png" alt="" 160px; width="100%", height="auto">
+
+         <img src="產品規格.png" alt="" 160px; width="100%", height="auto">
+<img src="優質 - Copy.png" alt="" 160px; width="100%", height="auto">
+ 
+<img src="行銷圖片.png" alt="" 160px; width="100%", height="auto">
+<div class="container_book">
+    <h4>單價區間:NT499</h4>
+    <h4>建議客製量:100個以上</h4>
+    <a href="#檔案名稱" class="btn_book">訂購</a>
+</div>             
+<br><br><br><br><br><br>
+
+<hr>
+<br><br><br><br><br><br>
+    <a href="https://www.oyeatek.com/" class="btn_web">台灣歐耶科技網站</a>
+    <a class="btn_fb" href="https://www.bing.com/ck/a?!&&p=c1209ddc93b994bfc12af4499bb4ca944b6ff3ac56d9e3fe02f8e26b05bb8f51JmltdHM9MTc0NDMyOTYwMA&ptn=3&ver=2&hsh=4&fclid=10040f1d-3be9-6893-1247-1a7a3af969a1&psq=%e6%ad%90%e8%80%b6%e7%a7%91%e6%8a%80+facebook&u=a1aHR0cHM6Ly93d3cuZmFjZWJvb2suY29tL3AvJUU1JThGJUIwJUU3JTgxJUEzJUU2JUFEJTkwJUU4JTgwJUI2JUU3JUE3JTkxJUU2JThBJTgwJUU4JTgyJUExJUU0JUJCJUJEJUU2JTlDJTg5JUU5JTk5JTkwJUU1JTg1JUFDJUU1JThGJUI4T2gtWWVhaC1UZWNobm9sb2d5LUNvTHRkLTEwMDA1NDIxNDUyMjQ2Ny8&ntb=1" >FB台灣歐耶科技</a>
+        <p></p>
+        <img src="歐耶禮贈品底圖.png" id="contact_us" width="100%" height="auto" alt="網頁底圖: Email:info@oyeatek.com
+        242新北市新莊區中原路141號14樓">
+  </body>
+</html>
