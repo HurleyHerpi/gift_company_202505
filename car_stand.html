@@ -11,8 +11,15 @@
             /* 背景顏色就會緊貼瀏覽器邊緣，導航列與圖片也會對齊畫面，不再有空隙。 */
             margin: 0;
             padding: 0;
-            background-color: #d8eef9;
-           box-sizing: border-box;/*所有元素的 padding/border 都包含在寬高內*/
+            background:repeating-linear-gradient(
+                to bottom,
+                #d8eef9,
+                #cde4f4 370px,
+                #dcfbe3 768px,
+                #cde4f4 1100px,
+                #d8eef9 1500px
+            );
+            box-sizing: border-box;/*所有元素的 padding/border 都包含在寬高內*/
             }
 
         .navbar {
@@ -293,18 +300,17 @@
                 color: white;
                 text-decoration: none;
                 border-radius:20px; /* 圓角*/
-                border: 1px solid white;
                 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
                 font-size: 25px;
             }
         .image-container_product_function a:hover {
                 position: absolute;
                 padding: 5px 10px;
-                background-color: white;
+                background-color: #d8eef9;
                 color: #63a6db;
                 text-decoration: none;
                 border-radius:20px;
-                border: 1px solid white;
+                border: 0.5px solid #d8eef9;
                 box-shadow: 0 6px 14px rgba(0, 0, 0, 0.4);
                 font-size: 25px;
             }
@@ -399,15 +405,10 @@
     <h4>單價區間:NT400~NT500</h4>
     <br>
     <h4>建議客製量:100個以上</h4>
+    <br><br><br><br><br><br>
 </div>             
-<br><br><br><br><br><br>
-
+<a href="" class="order-button">訂購🛒</a>
 <hr>
-      </div>
-      <a href="" class="order-button">訂購🛒</a>
-
-<br><br><br><br><br><br>
-<br><br>
 <div class="container_contact_us" id="contact_us">
     <div class="container_contact_us_icon">
         <a href="https://www.oyeatek.com/"><img src=world-wide-web.png class="img-btn-contact_us"></a>
