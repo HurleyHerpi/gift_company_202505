@@ -2,8 +2,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>首頁</title>
+  <title>台灣歐耶禮贈品-首頁</title>
   <style>
+        html, body {
+            /* 背景顏色就會緊貼瀏覽器邊緣，導航列與圖片也會對齊畫面，不再有空隙。 */
+            margin: 0;
+            padding: 0;
+            background-color: #e7ddd3;
+           box-sizing: border-box;/*所有元素的 padding/border 都包含在寬高內*/
+            }
+    
         .navbar {
             top: 0;
             left: 0;
@@ -132,11 +140,11 @@
             #menu-toggle {
             display: none;
             }
-            .content {
+        .content {
                 margin-top: 70px; /* 預留空間避免內容被 navbar 擋住 */
                 padding: 20px;
                 }
-            h1 {
+        h1 {
             text-align: center;     /* 文字置中 */
             font-family: "微軟正黑體", Arial, sans-serif;  /* 字體 */
             font-size: 48px;        /* 字體大小 */
@@ -265,6 +273,7 @@
             transition: color 0.3s;
             display: inline-block;
             white-space: nowrap;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
             }
 
         .a_gift_list:hover{
@@ -276,7 +285,25 @@
             transition: color 0.3s;
             display: inline-block;
             white-space: nowrap;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.35)
             }
+        .order-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            color: #e7ddd3;
+            background-color: #76553b;
+            padding: 12px 20px;
+            text-decoration: none;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 999;
+        }
+
+        .order-button:hover {
+            background-color: #e7ddd3;
+            color: #76553b;
+        }
 
     </style>
 </head>
@@ -294,25 +321,30 @@
     
           <!-- 導覽連結 -->
           <div class="nav-links">
-            <a href="index.html">公司介紹</a>
+            <a href="index.html">首頁</a>
             <a href="gift_list.html">禮品總覽</a>
             <a href="#contact_us">聯絡我們</a>
           </div>
         </div>
       </div>
-
+    <div class="content">
         <img src="品牌橫幅.png" width="100%" height="auto" alt="主題 網頁banner。內容 台灣歐耶 禮贈品 多功能實用禮品
         只需小預算就能送出您的貼心與品味">
+        <br>
+        <br>
         <img src="折扣組合禮包.png" width="100%" height="auto" alt="畢業新鮮人 折扣組合禮包。送出最貼心的畢業祝福，嶄新迎向職場。內含：質感智能計時器、專業視訊直播支架、車用磁吸充電手機架">
         <div class="a-container_gift_list">
             <a href="car_stand.html" class="a_gift_list">車用磁吸充電手機架</a>
             <a href="timer.html" class="a_gift_list">質感智能計時器</a>
             <a href="live_stand.html" class="a_gift_list">專業視訊直播支架</a>
         </div>
+    </div>
+    <a href="" class="order-button">訂購🛒</a>
+
         <br><br><br><br><br>
-<hr>
-    <a href="https://www.oyeatek.com/" class="btn_web">台灣歐耶科技網站</a>
-    <a href="https://www.bing.com/ck/a?!&&p=c1209ddc93b994bfc12af4499bb4ca944b6ff3ac56d9e3fe02f8e26b05bb8f51JmltdHM9MTc0NDMyOTYwMA&ptn=3&ver=2&hsh=4&fclid=10040f1d-3be9-6893-1247-1a7a3af969a1&psq=%e6%ad%90%e8%80%b6%e7%a7%91%e6%8a%80+facebook&u=a1aHR0cHM6Ly93d3cuZmFjZWJvb2suY29tL3AvJUU1JThGJUIwJUU3JTgxJUEzJUU2JUFEJTkwJUU4JTgwJUI2JUU3JUE3JTkxJUU2JThBJTgwJUU4JTgyJUExJUU0JUJCJUJEJUU2JTlDJTg5JUU5JTk5JTkwJUU1JTg1JUFDJUU1JThGJUI4T2gtWWVhaC1UZWNobm9sb2d5LUNvTHRkLTEwMDA1NDIxNDUyMjQ2Ny8&ntb=1" class="btn_fb">FB台灣歐耶科技</a>
+        <hr>
+        <a href="https://www.oyeatek.com/" class="btn_web">台灣歐耶科技網站</a>
+        <a href="https://www.bing.com/ck/a?!&&p=c1209ddc93b994bfc12af4499bb4ca944b6ff3ac56d9e3fe02f8e26b05bb8f51JmltdHM9MTc0NDMyOTYwMA&ptn=3&ver=2&hsh=4&fclid=10040f1d-3be9-6893-1247-1a7a3af969a1&psq=%e6%ad%90%e8%80%b6%e7%a7%91%e6%8a%80+facebook&u=a1aHR0cHM6Ly93d3cuZmFjZWJvb2suY29tL3AvJUU1JThGJUIwJUU3JTgxJUEzJUU2JUFEJTkwJUU4JTgwJUI2JUU3JUE3JTkxJUU2JThBJTgwJUU4JTgyJUExJUU0JUJCJUJEJUU2JTlDJTg5JUU5JTk5JTkwJUU1JTg1JUFDJUU1JThGJUI4T2gtWWVhaC1UZWNobm9sb2d5LUNvTHRkLTEwMDA1NDIxNDUyMjQ2Ny8&ntb=1" class="btn_fb">FB台灣歐耶科技</a>
         <p></p>
         <img src="歐耶禮贈品底圖.png" id="contact_us" width="100%" height="auto" alt="網頁底圖: Email:info@oyeatek.com
         242新北市新莊區中原路141號14樓">

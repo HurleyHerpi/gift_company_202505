@@ -2,9 +2,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>首頁</title>
+  <title>台灣歐耶禮贈品-禮品總覽</title>
   <style>
-        .navbar {
+        html, body {
+            /* 背景顏色就會緊貼瀏覽器邊緣，導航列與圖片也會對齊畫面，不再有空隙。 */
+            margin: 0;
+            padding: 0;
+            background-color: #e7ddd3;
+           box-sizing: border-box;/*所有元素的 padding/border 都包含在寬高內*/
+            }
+            .navbar {
             top: 0;
             left: 0;
             width: 100%;
@@ -265,6 +272,7 @@
             transition: color 0.3s;
             display: inline-block;
             white-space: nowrap;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
             }
 
         .a_gift_list:hover{
@@ -276,8 +284,25 @@
             transition: color 0.3s;
             display: inline-block;
             white-space: nowrap;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.35)
             }
+            .order-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            color: #e7ddd3;
+            background-color: #76553b;
+            padding: 12px 20px;
+            text-decoration: none;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 999;
+        }
 
+        .order-button:hover {
+            background-color: #e7ddd3;
+            color: #76553b;
+        }
     </style>
 </head>
 <body>
@@ -294,12 +319,13 @@
     
           <!-- 導覽連結 -->
           <div class="nav-links">
-            <a href="index.html">公司介紹</a>
+            <a href="index.html">首頁</a>
             <a href="gift_list.html">禮品總覽</a>
             <a href="#contact_us">聯絡我們</a>
           </div>
         </div>
       </div>
+      <div class="content">
 
             <img src="折扣組合禮包.png" width="100%" height="auto" alt="畢業新鮮人 折扣組合禮包。送出最貼心的畢業祝福，嶄新迎向職場。內含：質感智能計時器、專業視訊直播支架、車用磁吸充電手機架">
             <div class="a-container_gift_list">
@@ -307,7 +333,9 @@
                 <a href="timer.html" class="a_gift_list">質感智能計時器</a>
                 <a href="live_stand.html" class="a_gift_list">專業視訊直播支架</a>
             </div>
-
+        <hr>
+        <br>
+        <h1>禮包內容物介紹</h1>
         <img src="行銷圖片.png" alt="車用磁吸充電手機架" 160px; width="100%", height="auto">
         <img src="質感智能計時器 _網頁slogan.banner圖_淺灰.jpg" alt="網頁banner" width:100% height="500">
         <img src="質感智能計時器 _多功能、外觀.jpg" alt="質感智能計時器 _多功能、外觀" 160px; width="100%" height="auto">
@@ -327,6 +355,8 @@
     </*img src="車用無線充電架.jpg" class="img_charging_stand" alt="質感智能計時器_產品主圖"  width="100px" height="100px" */>
 
 
+      </div>
+      <a href="" class="order-button">訂購🛒</a>
 
     <br><br><br><br><br>
     <hr>
