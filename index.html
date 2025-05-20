@@ -3,6 +3,7 @@
 <html>
 <head>
   <title>台灣歐耶禮贈品-首頁</title>
+  <link rel="stylesheet" href="footer.css">
   <style>
         html, body {
             /* 背景顏色就會緊貼瀏覽器邊緣，導航列與圖片也會對齊畫面，不再有空隙。 */
@@ -230,30 +231,7 @@
             margin-bottom: 8px;
             margin-top: 8px;
         }
-        .btn_web {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #77757b;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            margin-left: 160px;
-            margin-right: 10px;
-            margin-bottom: 8px;
-            margin-top: 8px;
-        }
-        .btn_fb {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #1877F2;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            margin-left: 0px;
-            margin-right: 160px;
-            margin-bottom: 8px;
-            margin-top: 8px;
-        }
+
         .box_between_product_button_and_contact_us_button {
             width:200px;
             height:600px;
@@ -290,7 +268,7 @@
         .order-button {
             position: fixed;
             bottom: 20px;
-            right: 20px;
+            right: 30px;
             color: #e7ddd3;
             background-color: #76553b;
             padding: 12px 20px;
@@ -303,6 +281,62 @@
         .order-button:hover {
             background-color: #e7ddd3;
             color: #76553b;
+        }
+        .container_contact_us {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+            height: auto;
+            margin-bottom:0px;
+            }
+        .container_contact_us_icon{
+            flex-direction: row;       /* 水平排列 */
+            position: absolute;
+            top: 35%; /* 依需求調整，越小越靠上 */
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            gap: 30px;
+            width: auto;
+            z-index: 2;
+        }
+        .img-btn-contact_us {
+            width: 30px;         /* 你可以依需要改尺寸 */
+            height: auto;
+            cursor: pointer;      /* 滑鼠變成小手，表示可點 */
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            border-radius: 50px;  /* 如果你想讓圖片四角圓一點 */
+            }
+        .img-btn-contact_us:hover {
+            transform: scale(1.05);    /* 滑過放大一點點，手感好 */
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.4);
+            }
+        .btn_web {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #77757b;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-left: 160px;
+            margin-right: 10px;
+            margin-bottom: 8px;
+            margin-top: 8px;
+        }
+        .btn_fb {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #1877F2;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-left: 0px;
+            margin-right: 160px;
+            margin-bottom: 8px;
+            margin-top: 8px;
         }
 
     </style>
@@ -343,10 +377,15 @@
 
         <br><br><br><br><br>
         <hr>
-        <a href="https://www.oyeatek.com/" class="btn_web">台灣歐耶科技網站</a>
-        <a href="https://www.bing.com/ck/a?!&&p=c1209ddc93b994bfc12af4499bb4ca944b6ff3ac56d9e3fe02f8e26b05bb8f51JmltdHM9MTc0NDMyOTYwMA&ptn=3&ver=2&hsh=4&fclid=10040f1d-3be9-6893-1247-1a7a3af969a1&psq=%e6%ad%90%e8%80%b6%e7%a7%91%e6%8a%80+facebook&u=a1aHR0cHM6Ly93d3cuZmFjZWJvb2suY29tL3AvJUU1JThGJUIwJUU3JTgxJUEzJUU2JUFEJTkwJUU4JTgwJUI2JUU3JUE3JTkxJUU2JThBJTgwJUU4JTgyJUExJUU0JUJCJUJEJUU2JTlDJTg5JUU5JTk5JTkwJUU1JTg1JUFDJUU1JThGJUI4T2gtWWVhaC1UZWNobm9sb2d5LUNvTHRkLTEwMDA1NDIxNDUyMjQ2Ny8&ntb=1" class="btn_fb">FB台灣歐耶科技</a>
-        <p></p>
-        <img src="歐耶禮贈品底圖.png" id="contact_us" width="100%" height="auto" alt="網頁底圖: Email:info@oyeatek.com
+        <br><br>
+    <div class="container_contact_us" id="contact_us">
+        <div class="container_contact_us_icon">
+            <a href="https://www.oyeatek.com/"><img src=world-wide-web.png class="img-btn-contact_us"></a>
+            <a href="https://www.bing.com/ck/a?!&&p=c1209ddc93b994bfc12af4499bb4ca944b6ff3ac56d9e3fe02f8e26b05bb8f51JmltdHM9MTc0NDMyOTYwMA&ptn=3&ver=2&hsh=4&fclid=10040f1d-3be9-6893-1247-1a7a3af969a1&psq=%e6%ad%90%e8%80%b6%e7%a7%91%e6%8a%80+facebook&u=a1aHR0cHM6Ly93d3cuZmFjZWJvb2suY29tL3AvJUU1JThGJUIwJUU3JTgxJUEzJUU2JUFEJTkwJUU4JTgwJUI2JUU3JUE3JTkxJUU2JThBJTgwJUU4JTgyJUExJUU0JUJCJUJEJUU2JTlDJTg5JUU5JTk5JTkwJUU1JTg1JUFDJUU1JThGJUI4T2gtWWVhaC1UZWNobm9sb2d5LUNvTHRkLTEwMDA1NDIxNDUyMjQ2Ny8&ntb=1"><img src=facebook.png class="img-btn-contact_us"></a>
+        </div>
+        <img src="歐耶禮贈品底圖.png" width="100%" height="auto" 
+        alt="網頁底圖: Email:info@oyeatek.com
         242新北市新莊區中原路141號14樓">
+    </div>
   </body>
 </html>

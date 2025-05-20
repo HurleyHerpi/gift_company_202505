@@ -1,0 +1,32 @@
+    .container_contact_us {
+        position: relative;
+        display: inline-block;
+        width: 100%;
+        height: auto;
+        margin-bottom:0px;
+        }
+    .container_contact_us_icon{
+        flex-direction: row;       /* 水平排列 */
+        position: absolute;
+        top: 35%; /* 依需求調整，越小越靠上 */
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 30px;
+        width: auto;
+        z-index: 2;
+    }
+    .img-btn-contact_us {
+        width: 30px;         /* 你可以依需要改尺寸 */
+        height: auto;
+        cursor: pointer;      /* 滑鼠變成小手，表示可點 */
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        border-radius: 50px;  /* 如果你想讓圖片四角圓一點 */
+        }
+    .img-btn-contact_us:hover {
+        transform: scale(1.05);    /* 滑過放大一點點，手感好 */
+        box-shadow: 0 6px 14px rgba(0, 0, 0, 0.4);
+        }
